@@ -1,0 +1,12 @@
+PREFIX mydb: <http://mydb.org/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?s ?name ?event ?date
+WHERE {
+	?s ?event ?date .
+    OPTIONAL
+    {?s rdfs:label ?name}
+    FILTER ( datatype(?date) = xsd:date )
+}
+ORDER BY ASC(?date)

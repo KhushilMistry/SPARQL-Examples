@@ -1,0 +1,10 @@
+PREFIX mydb: <http://mydb.org/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+
+SELECT ?name ?cause ?date
+WHERE
+{?s rdfs:label ?name ;
+  mydb:deathCause ?cause ;
+  schema:deathDate ?date .
+}
